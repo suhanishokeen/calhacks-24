@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+/* Global reset and box-sizing */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Overall body styling */
+body {
+  background-color: #632b6c; /* Purple background */
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Fredoka One", cursive; /* Apply Fredoka One font */
+  font-size: 100px;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: color 3s infinite linear;
+  text-shadow: 0 0 10px #000a;
+  transition: all 0.5s;
+}
+
+.chat-window {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  height: 300px;
+  width: 100%;
+  max-width: 600px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  background-color: #632b6c;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.chat-window .user {
+  text-align: right;
+  margin-bottom: 5px;
+  color: #c76b98; /* User message color */
+}
+
+.chat-window .ai {
+  text-align: left;
+  margin-bottom: 5px;
+  color: #fcc3a3; /* AI message color */
+}
+
+/* Input field styling */
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #632b6c;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #c76b98;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+input[type="text"]:hover {
+  background-color: #fcc3a3;
+  color: #632b6c;
+}
+
+@keyframes color {
+  0% {
+    color: hsl(0, 75%, 75%);
+  }
+  10% {
+    color: hsl(36, 75%, 75%);
+  }
+  20% {
+    color: hsl(72, 75%, 75%);
+  }
+  30% {
+    color: hsl(108, 75%, 75%);
+  }
+  40% {
+    color: hsl(144, 75%, 75%);
+  }
+  50% {
+    color: hsl(180, 75%, 75%);
+  }
+  60% {
+    color: hsl(216, 75%, 75%);
+  }
+  70% {
+    color: hsl(252, 75%, 75%);
+  }
+  80% {
+    color: hsl(288, 75%, 75%);
+  }
+  90% {
+    color: hsl(324, 75%, 75%);
+  }
+  100% {
+    color: hsl(360, 75%, 75%);
+  }
+}
+.mood-calendar {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fcc3a3;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.happy-day {
+  background-color: #7dcea0 !important;
+  color: black !important;
+}
+
+.sad-day {
+  background-color: #e74c3c !important;
+  color: white !important;
+}
+
+.react-calendar {
+  background-color: #632b6c;
+  color: black;
+  border: none;
+  border-radius: 15px;
+}
+
+.react-calendar__tile {
+  background-color: #632b6c;
+  color: black;
+}
+
+.react-calendar__tile:hover {
+  background-color: #fcc3a3;
+  color: #632b6c;
+}
