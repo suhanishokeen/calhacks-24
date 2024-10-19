@@ -46,3 +46,76 @@ body {
     background-color: #1a1b2d; /* Inner circle background color */
   }
   
+  .mood-calender-container {
+    padding: 20px;
+    background: linear-gradient(to right, #632b6c, #c76b98);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .calendar-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fancy-calendar {
+    border: none;
+  }
+  
+  .selected-date {
+    font-size: 1.2rem;
+    color: white;
+ /* Remove red color from weekends and increase the size of the calendar */
+  }
+  
+.react-calendar {
+    width: 100%;
+    max-width: 800px; /* Increase the width */
+    background-color: #f5f5f5;
+    border: none; /* Remove the default border */
+    border-radius: 15px;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem; /* Increase the font size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 5px solid;
+    border-image: linear-gradient(45deg, #6baeff, #32e084) 1; /* Gradient border */
+  }
+  
+  /* Customize the active date (selected) */
+  .react-calendar__tile--active {
+    background-color: #4a90e2 !important; /* Blue for selected date */
+    color: white !important;
+  }
+  
+  /* Customize other tiles, including hover and focus */
+  .react-calendar__tile {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .react-calendar__tile:hover,
+  .react-calendar__tile:focus {
+    background-color: #32e084 !important; /* Green for hover */
+    color: white;
+  }
+  
+  /* Remove red from weekends */
+  .react-calendar__month-view__days__day--weekend {
+    color: #000 !important; /* Change weekend color to black */
+  }
+  
+  /* Adjust the font style for weekdays */
+  .react-calendar__month-view__weekdays {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #333;
+  }
+  
+  
