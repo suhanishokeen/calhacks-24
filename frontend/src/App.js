@@ -1,32 +1,24 @@
-import React from 'react';
+import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import AIChat from './components/AIChat';
-import MoodCalendar from './components/MoodCalendar';
-//import PulseAnimation from './components/PulseAnimation';
 
 function App() {
-
   return (
-    <Router>
-      <div className="App">
-        {/* Taskbar at the top */}
-        <nav>
-          <ul className="taskbar">
-            <li><Link to="/chat">AI Chat</Link></li>
-            <li><Link to="/calendar">Mood Calendar</Link></li>
-            <li><Link to="/history">Mood History</Link></li>
-          </ul>
-        </nav>
-
-        {/* Route Definitions */}
-        <Routes>
-          <Route path="/chat" element={<AIChat />} />
-          <Route path="/calendar" element={<MoodCalendar />} />
-          <Route path="/" element={<AIChat />} /> 
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
