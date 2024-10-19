@@ -3,26 +3,31 @@ import React, { useState } from 'react';
 const AIChat = () => {
   const [message, setMessage] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
+  const [isThinking, setIsThinking] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (message.trim()) {
       setChatHistory([...chatHistory, { sender: 'user', text: message }]);
       setMessage('');
+      
+      setIsThinking(true); 
 
-      // Placeholder AI response
       setTimeout(() => {
         setChatHistory((prevHistory) => [
           ...prevHistory,
           { sender: 'ai', text: 'AI is thinking...' }
         ]);
+        setIsThinking(false);
       }, 1000);
     }
   };
 
   return (
     <div>
-      <h1>AI Diary</h1> {/* Title added here */}
+      <h1>AI Diary</h1> {/* Title */}
+      
+      {/* Chat window */}
       <div className="chat-window">
         {chatHistory.map((chat, index) => (
           <div key={index} className={chat.sender}>
@@ -30,6 +35,8 @@ const AIChat = () => {
           </div>
         ))}
       </div>
+
+      
       <form onSubmit={handleSubmit}>
         <input 
           type="text" 
