@@ -1,5 +1,4 @@
 from playsound import playsound
+from pydub import AudioSegment
 
-
-def reproduceAudio():
-    playsound('AudioFiles/output.wav')
+playsound('output.wav')
