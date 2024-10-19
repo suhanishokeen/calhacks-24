@@ -24,12 +24,6 @@ from bson import ObjectId  # Add this import
 from fastapi import Query
 from typing import Dict, List, Tuple
 import statistics
-from deepgram import (
-    DeepgramClient,
-    PrerecordedOptions,
-    FileSource,
-)
-import aiohttp  # For making asynchronous HTTP requests
 
 
 load_dotenv()
@@ -51,12 +45,6 @@ REFRESH_TOKEN_EXPIRE_DAYS = 7  # Long-lived refresh token
 
 HUME_API_KEY = os.getenv("HUME_API_KEY")
 HUME_WEBSOCKET_URL = f"wss://api.hume.ai/v0/stream/models?apikey={HUME_API_KEY}"
-
-DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY")
-if not DEEPGRAM_API_KEY:
-    raise ValueError("No DEEPGRAM_API_KEY set for Deepgram")
-
-deepgram = DeepgramClient(DEEPGRAM_API_KEY)
 
 
 # Pydantic models
@@ -669,37 +657,17 @@ async def upload_audio(
         
         # top_emotion_words = processor.analyze_word_emotions()
 
-        # Process with Deepgram to get transcript
-        # Initialize Deepgram client
-        DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY")
-        if not DEEPGRAM_API_KEY:
-            raise ValueError("No DEEPGRAM_API_KEY set for Deepgram")
-        
 
-        # deepgram = Deepgram(DEEPGRAM_API_KEY)
-
-        # Read the audio file
-        async with aiofiles.open(temp_file_path, 'rb') as audio_file:
-            audio_data = await audio_file.read()
-            source = {'buffer': audio_data, 'mimetype': 'audio/mp3'}
-
-        # Set the options for transcription
-        options = {
-            "punctuate": True,
-            "model": "nova",
-            "tier": "enhanced",
-            # Add any other options you need
-        }
-
-        # Perform the transcription
-        transcript_response = await deepgram.transcription.prerecorded(source, options)
-
-        # Extract transcript from the response
-        transcript = transcript_response['results']['channels'][0]['alternatives'][0]['transcript']
-
-        # Prepare the result
         result = {
-            "transcript": transcript,
+            # "top_emotion_words": [
+            #     {
+            #         "word": word,
+            #         "emotion": emotion,
+            #         "score": score
+            #     }
+                # for word, emotion, score in top_emotion_words
+            # ],
+            # "overall_emotions": processor.get_overall_emotions(),
             "overall_emotions": processor.get_overall_emotions_weighted(),
             "detailed_segments": processor.segments_emotions
         }
@@ -723,10 +691,6 @@ async def upload_audio(
             status_code=500,
             content={"error": f"An error occurred: {str(e)}"}
         )
-    
-    finally:
-        if temp_file_path and os.path.exists(temp_file_path):
-            os.unlink(temp_file_path)
 
 
 @app.get("/emotions/history")
