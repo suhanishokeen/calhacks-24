@@ -7,7 +7,7 @@ const MoodCalendar = () => {
   const [moodLog, setMoodLog] = useState({});
 
   const handleDayClick = (selectedDate) => {
-    const mood = prompt("How do you feel today? (happy, neutral, sad)");
+    const mood = prompt("How are you feeling today? (happy, neutral, sad)");
     if (mood) {
       setMoodLog({
         ...moodLog,
@@ -20,9 +20,9 @@ const MoodCalendar = () => {
     if (view === 'month') {
       const mood = moodLog[date.toDateString()];
       if (mood === 'happy') {
-        return 'happy-day'; // Style for happy days
+        return 'happy-day'; 
       } else if (mood === 'sad') {
-        return 'sad-day'; // Style for sad days
+        return 'sad-day';
       }
     }
     return null;
