@@ -1,7 +1,7 @@
 import React from 'react';
 import MoodCalendar from '../components/MoodCalendar'; // Import the renamed MoodCalendar component
 
-const MoodCalendar = () => {
+const MoodCalendarPage = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 to-blue-800 p-6">
       <div className="p-6 bg-white rounded-lg shadow-lg">
