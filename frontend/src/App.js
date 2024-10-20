@@ -15,7 +15,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/MoodCalendarPage" element={<MoodCalendarPage />} />
         <Route path="/AIFriend" element={<AIFriend />} />
         <Route path="/Tables" element={<Tables />} />

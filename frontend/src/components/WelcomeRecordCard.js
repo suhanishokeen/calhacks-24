@@ -1,6 +1,6 @@
 import React from 'react';
 
-const WelcomeRecordCard = ({ name, onRecord }) => {
+const WelcomeRecordCard = ({ name, onRecord, onSeeCalendar }) => {
   return (
     <div 
       style={{
@@ -42,13 +42,8 @@ const WelcomeRecordCard = ({ name, onRecord }) => {
           </p>
         </div>
 
-        {/* Button at the bottom */}
-        <div 
-          style={{
-            display: 'flex',
-            justifyContent: 'center', 
-          }}
-        >
+        {/* Buttons at the bottom */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
           <button 
             onClick={onRecord} 
             style={{
@@ -64,6 +59,22 @@ const WelcomeRecordCard = ({ name, onRecord }) => {
             }}
           >
             Tap to Record
+          </button>
+          <button 
+            onClick={onSeeCalendar} 
+            style={{
+              backgroundColor: '#007bff',
+              color: 'white',
+              padding: '10px',
+              borderRadius: '8px',
+              border: 'none',
+              cursor: 'pointer',
+              width: '100%', 
+              maxWidth: '150px',
+              textAlign: 'center'
+            }}
+          >
+            See Calendar
           </button>
         </div>
       </div>

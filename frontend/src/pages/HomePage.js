@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/styles.css'; 
 import WelcomeRecordCard from '../components/WelcomeRecordCard';
-
 import MoodOverview from '../components/MoodOverview';
 import Header from '../components/Header'; 
+import Calendar from 'react-calendar'; // Import your calendar component
+import ReferralTrackingCard from '../components/ReferralTrackingCard'; // Import the ReferralTrackingCard component
 
 const HomePage = () => {
-  const loggedDays = 20; 
-    return(
-      <div className="min-h-screen bg-gradient-to-r from-[#0a0034] to-[#180046]">
+  const [showCalendar, setShowCalendar] = useState(false); // Manage calendar visibility
+  const loggedDays = 20;
+
+  // Sample data for emotions from backend
+  const emotions = [
+    { name: 'Happiness', percentage: 60 },
+    { name: 'Sadness', percentage: 25 },
+    { name: 'Surprise', percentage: 15 },
+  ];
+
+  // Function to handle "See Calendar" click
+  const handleSeeCalendar = () => {
+    setShowCalendar(true); // Show the calendar
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-[#0a0034] to-[#180046]">
       <Header />  
 
       <div className="flex">
@@ -31,11 +46,20 @@ const HomePage = () => {
 
         {/* Main Content Area */}
         <div className="flex-1 p-8">
-          {/* Grid layout for the 3 cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* WelcomeRecordCard */}
+            {/* Conditionally render the WelcomeRecordCard or Calendar */}
             <div className="bg-white h-full flex items-center justify-center rounded-lg shadow-lg aspect-square">
-              <WelcomeRecordCard name="Liza" onRecord={() => console.log('Recording...')} />
+              {!showCalendar ? (
+                <WelcomeRecordCard 
+                  name="Liza" 
+                  onRecord={() => console.log('Recording...')} 
+                  onSeeCalendar={handleSeeCalendar} // Pass the handler for "See Calendar"
+                />
+              ) : (
+                <div className="p-6 rounded-lg shadow-lg">
+                  <Calendar />
+                </div>
+              )}
             </div>
 
             {/* Mood Overview Card */}
@@ -45,20 +69,20 @@ const HomePage = () => {
 
             {/* Referral Tracking */}
             <div className="bg-gradient-to-br from-[#1e1e2d] to-[#38385d] p-6 rounded-lg shadow-2xl relative">
-              <div className="flex flex-col justify-center items-center text-white">
-                <h2 className="text-lg mb-2">Referral Tracking</h2>
-                <div className="w-24 h-24 rounded-full border-4 border-green-500 flex justify-center items-center">
-                  <p className="text-xl">Placeholder</p>
-                </div>
-                <p className="text-gray-300 mt-2">Placeholder</p>
-              </div>
+              <ReferralTrackingCard 
+                currentMonth="October" 
+                totalDaysInMonth={31} 
+                daysLoggedInMonth={15} 
+                totalDaysLoggedYear={250} 
+                totalDaysLoggedEver={600} 
+                emotions={emotions} 
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    );
+  );
 };
 
 export default HomePage;
