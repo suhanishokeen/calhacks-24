@@ -29,7 +29,7 @@ from deepgram import (
     PrerecordedOptions,
     FileSource,
 )
-import aiohttp  # For making asynchronous HTTP requests
+import aiofiles  # For making asynchronous HTTP requests
 
 
 load_dotenv()
@@ -675,9 +675,6 @@ async def upload_audio(
         if not DEEPGRAM_API_KEY:
             raise ValueError("No DEEPGRAM_API_KEY set for Deepgram")
         
-
-        # deepgram = Deepgram(DEEPGRAM_API_KEY)
-
         # Read the audio file
         async with aiofiles.open(temp_file_path, 'rb') as audio_file:
             audio_data = await audio_file.read()
@@ -687,12 +684,16 @@ async def upload_audio(
         options = {
             "punctuate": True,
             "model": "nova",
-            "tier": "enhanced",
+            # "tier": "enhanced",
             # Add any other options you need
         }
 
         # Perform the transcription
-        transcript_response = await deepgram.transcription.prerecorded(source, options)
+        # transcript_response = await deepgram.transcription.prerecorded(source, options)
+        print("just before the model selection")
+        transcript_response = deepgram.listen.prerecorded.v("1").transcribe_file(source, options)
+        print("Transcript response:", transcript_response)
+        print("model:", options["model"])
 
         # Extract transcript from the response
         transcript = transcript_response['results']['channels'][0]['alternatives'][0]['transcript']

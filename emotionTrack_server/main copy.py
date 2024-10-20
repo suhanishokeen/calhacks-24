@@ -629,18 +629,18 @@ async def upload_audio(
     file: UploadFile = File(...),
     current_user: dict = Depends(get_current_user)
 ):
-    if not file.filename.endswith('.mp3'):
+    # Check if the uploaded file is a WAV file
+    if not file.filename.endswith('.wav'):
         return JSONResponse(
             status_code=400,
-            content={"error": "Only MP3 files are supported"}
+            content={"error": "Only WAV files are supported"}
         )
-    
     try:
         user_id = str(current_user['_id'])
 
         processor = AudioChunkProcessor()
         # Save uploaded file
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.mp3') as temp_file:
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.wav') as temp_file:
             content = await file.read()
             temp_file.write(content)
             temp_file_path = temp_file.name
