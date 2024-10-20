@@ -52,26 +52,3 @@ center-card {
   background-color: #2b2c3b;
   overflow: hidden;
 }
-
-.circle-inner {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.circle-center {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 80%;
-  border-radius: 50%;
-  background-color: #1a1b2d; 
-}

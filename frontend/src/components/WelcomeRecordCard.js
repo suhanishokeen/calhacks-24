@@ -7,8 +7,10 @@ const WelcomeRecordCard = ({ name, onRecord }) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
-        backgroundImage: 'linear-gradient(135deg, #001f4d, #6baeff)', 
+        backgroundImage: 'linear-gradient(135deg, #001f4d, #6baeff)',
+        width: '100%', 
+        height: '100%', 
+        borderRadius: '16px',
       }}
     >
       <div 
@@ -18,10 +20,10 @@ const WelcomeRecordCard = ({ name, onRecord }) => {
           backgroundPosition: 'center',
           color: 'white',
           padding: '20px',
-          borderRadius: '50px',
+          borderRadius: '0px',
           boxShadow: '0 20px 45px rgba(0, 0, 0, 0.2)',
-          width: '75%',
-          height: '65%', 
+          width: '100%',
+          height: '100%',
           display: 'flex',
           flexDirection: 'column', 
           justifyContent: 'space-between', 
@@ -29,13 +31,13 @@ const WelcomeRecordCard = ({ name, onRecord }) => {
       >
         {/* Welcome text */}
         <div style={{ textAlign: 'left' }}>
-          <h1 style={{ opacity: 0.8, fontSize: '32px', marginBottom: '0' }}>
+          <h1 style={{ opacity: 0.8, fontSize: '24px', marginBottom: '0' }}>
             Welcome back,
           </h1>
-          <h1 style={{ color: '#6baeff', fontSize: '36px', marginTop: '0' }}>
+          <h1 style={{ color: '#28a745', fontSize: '28px', marginTop: '0' }}>
             {name}
           </h1>
-          <p style={{ fontSize: '18px', marginTop: '10px' }}>
+          <p style={{ fontSize: '16px', marginTop: '10px' }}>
             Glad to see you again! Ask me anything.
           </p>
         </div>
@@ -57,7 +59,7 @@ const WelcomeRecordCard = ({ name, onRecord }) => {
               border: 'none',
               cursor: 'pointer',
               width: '100%', 
-              maxWidth: '200px',
+              maxWidth: '150px',
               textAlign: 'center'
             }}
           >
