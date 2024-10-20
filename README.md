@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# CalHacks 2024 Project: DayTalks
+DayTalks is a mental health-focused web application designed to help users track and reflect on their emotional well-being. The app provides a structured way for individuals to keep tabs on their mental health, helping them identify trends and gain insights into their emotional journey. At the heart of DayTalks is its AI-powered friend, Veronica, who listens to users through voice recordings, analyzes the emotions conveyed, and provides personalized emotional insights. By leveraging cutting-edge AI and emotional analysis tools like HumeAI, the app creates a supportive environment where users can express themselves freely and receive meaningful feedback. By offering real-time feedback, DayTalks empowers users to understand their emotions better and take proactive steps to enhance their well-being.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tech Stack:
+- Frontend: React.js, Tailwind CSS
+- Backend: FastAPI
+- Database & Authentication: MongoDB, JWT
+- Speech Recognition: Deepgram
+- Emotional Analysis: HumeAI
+- AI Feedback: Groq
 
-## Available Scripts
+## Installation
+To get a local copy up and running, follow these steps:
+1. Install Node.js and npm on your computer.
+2. Clone the Repository:
+```bash
+git clone https://github.com/your-username/calhacks-24.git
+```
+3. Navigate into the project directory and then the frontend folder:
+```bash
+cd calhacks-24
+cd frontend
+```
+4. Install Frontend Dependencies
+```bash
+npm install
+```
+5. Navigate back to the root project folder and into the backend folder:
+```bash
+cd ../backend
+```
+6. If using FastAPI with Python, install backend dependencies (e.g., using pip)
+```bash
+pip install -r requirements.txt
+```
+7. Install backend dependencies
+```bash
+npm start
+```
 
-In the project directory, you can run:
+## Usage
+- Open the app in your browser at http://localhost:3000.
+- Sign in or create an account.
+- Use the mood calendar to log your emotions or interact with the AI friend to receive personalized insights.
 
-### `npm start`
+## Features
+- **AI Friend Veronica**: Interact with an AI-powered friend for personalized emotional insights.
+- **Mood Calendar**: Log and visualize your moods on a calendar interface.
+- **Emotional Insights**: Receive real-time emotional analysis and feedback using HumeAI.
+- **User Login**: Secure authentication with JWT ensures users' mood logs and emotional insights are saved and accessible across sessions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Contributors
+- **Alex Zhu Zhou** [GitHub](https://github.com/alexzhuzhou)
+- **Shrey Khandelwal** [GitHub](https://github.com/HawkingRadiation42)
+- **Suhani Shokeen** [GitHub](https://github.com/suhanishokeen)
+- **Liza Tinku Jose** [GitHub](https://github.com/lizatinku)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
