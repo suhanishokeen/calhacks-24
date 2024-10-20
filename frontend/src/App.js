@@ -8,7 +8,7 @@ import SatisfactionRateCard from './components/SatisfactionRateCard';
 import ReferralTrackingCard from './components/ReferralTrackingCard';
 import MoodCalendarPage from './pages/MoodCalendarPage';
 import HomePage from './pages/HomePage';
-import AIFriend from './pages/AIFriend';
+import AIFriendPage from './pages/AIFriend';
 import Tables from './pages/Tables';
 import Profile from './pages/Profile';
 import Logout from './pages/Logout';
@@ -20,7 +20,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/MoodCalendarPage" element={<MoodCalendarPage />} />
-      <Route path="/AIFriend" element={<AIFriend />} />
+      <Route path="/AIFriend" element={<AIFriendPage />} />
       <Route path="/Tables" element={<Tables />} />
       <Route path="/Profile" element={<Profile />}  />
       <Route path="/Logout" element={<Logout />} />
