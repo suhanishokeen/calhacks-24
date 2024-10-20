@@ -58,7 +58,7 @@ const AIFriendPage = () => {
 
   // Function to navigate back to the home page
   const goToHomePage = () => {
-    navigate('/');  // Navigate to the home page (assuming your home route is '/')
+    navigate('/home');  // Navigate to the home page (assuming your home route is '/')
   };
 
   return (

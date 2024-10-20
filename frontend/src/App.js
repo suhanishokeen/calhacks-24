@@ -1,28 +1,66 @@
 import React from 'react';
-import './styles/styles.css'; 
-//import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MoodCalendarPage from './pages/MoodCalendarPage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import MoodCalendarPage from './pages/MoodCalendarPage';
 import AIFriendPage from './pages/AIFriend';
 import Tables from './pages/Tables';
 import Profile from './pages/Profile';
-import Logout from './pages/Logout';
+import Logout from './components/Logout';
 import LoginRegistrationPage from './pages/LoginRegistrationPage';
 import RegistrationForm from './pages/RegistrationForm';
+import ProtectedRoute from './components/ProtectedRoute'; // Import ProtectedRoute
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<LoginRegistrationPage />} />
+        {/* Public Routes */}
+        <Route path="/" element={<LoginRegistrationPage />} />
         <Route path="/register" element={<RegistrationForm />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/MoodCalendarPage" element={<MoodCalendarPage />} />
-        <Route path="/AIFriend" element={<AIFriendPage />} />
-        <Route path="/Tables" element={<Tables />} />
-        <Route path="/Profile" element={<Profile />} />
-        <Route path="/Logout" element={<Logout />} />
+
+        {/* Protected Routes */}
+        <Route 
+          path="/home" 
+          element={
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/moodcalendar" 
+          element={
+            <ProtectedRoute>
+              <MoodCalendarPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/aifriend" 
+          element={
+            <ProtectedRoute>
+              <AIFriendPage />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/tables" 
+          element={
+            <ProtectedRoute>
+              <Tables />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } 
+        />
+        <Route path="/logout" element={<Logout />} />
+        
 
       </Routes>
     </BrowserRouter>

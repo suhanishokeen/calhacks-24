@@ -21,7 +21,7 @@ const RegistrationForm = () => {
       setMessage('Registration successful!');
       
       // Redirect to /Home after successful registration
-      navigate('/home');
+      navigate('/');
     } catch (error) {
       console.error('Error registering user:', error);
       setMessage(error.response?.data.message || 'Registration failed. Please try again.');
@@ -31,16 +31,7 @@ const RegistrationForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="text-2xl font-bold text-white mb-6 text-center">Sign Up</h2>
-      <div className="mb-4">
-        <label className="block text-gray-400 mb-2">Username</label>
-        <input
-          type="text"
-          className="w-full p-2 rounded-md bg-gray-700 text-white focus:ring-2 focus:ring-green-500"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </div>
+
       <div className="mb-4">
         <label className="block text-gray-400 mb-2">Email</label>
         <input

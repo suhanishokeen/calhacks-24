@@ -5,6 +5,7 @@ import MoodOverview from '../components/MoodOverview';
 import Header from '../components/Header'; 
 import Calendar from 'react-calendar'; // Import your calendar component
 import ReferralTrackingCard from '../components/ReferralTrackingCard'; // Import the ReferralTrackingCard component
+import { Link } from 'react-router-dom'; // Import Link to use for navigation
 
 const HomePage = () => {
   const [showCalendar, setShowCalendar] = useState(false); // Manage calendar visibility
@@ -30,17 +31,10 @@ const HomePage = () => {
         {/* Sidebar */}
         <div className="w-64 bg-[#1e1e2d] p-5 text-white flex flex-col space-y-4">
           <h2 className="text-2xl font-bold mb-8">DASHBOARD</h2>
-          <nav>
-            <ul className="space-y-2">
-              <li><a href="/MoodCalendarPage" className="block p-2 hover:bg-[#38385d] rounded">Mood Calendar</a></li>  
-              <li><a href="/AIFriend" className="block p-2 hover:bg-[#38385d] rounded">AI Friend</a></li>            
-              <li><a href="/Tables" className="block p-2 hover:bg-[#38385d] rounded">Tables</a></li>
-            </ul>
-          </nav>
           <p className="mt-8 text-l">Your Account</p>
           <ul className="space-y-2">
-            <li><a href="/Profile" className="block p-2 hover:bg-[#38385d] rounded">Profile</a></li>
-            <li><a href="/Logout" className="block p-2 hover:bg-[#38385d] rounded">Logout</a></li>
+            <li><Link to="/Profile" className="block p-2 hover:bg-[#38385d] rounded">Profile</Link></li>
+            <li><Link to="/Logout" className="block p-2 hover:bg-[#38385d] rounded">Logout</Link></li> {/* Add Logout link */}
           </ul>
         </div>
 
