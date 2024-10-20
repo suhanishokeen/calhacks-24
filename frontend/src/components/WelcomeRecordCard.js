@@ -44,22 +44,23 @@ const WelcomeRecordCard = ({ name, onRecord, onSeeCalendar }) => {
 
         {/* Buttons at the bottom */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-          <button 
-            onClick={onRecord} 
-            style={{
-              backgroundColor: '#28a745',
-              color: 'white',
-              padding: '10px',
-              borderRadius: '8px',
-              border: 'none',
-              cursor: 'pointer',
-              width: '100%', 
-              maxWidth: '150px',
-              textAlign: 'center'
-            }}
-          >
-            Tap to Record
-          </button>
+          <a href="/AIFriend" target="_blank" rel="noopener noreferrer">
+            <button 
+              style={{
+                backgroundColor: '#28a745',
+                color: 'white',
+                padding: '10px',
+                borderRadius: '8px',
+                border: 'none',
+                cursor: 'pointer',
+                width: '100%', 
+                maxWidth: '150px',
+                textAlign: 'center'
+              }}
+            >
+              Tap to Record
+            </button>
+          </a>
           <button 
             onClick={onSeeCalendar} 
             style={{

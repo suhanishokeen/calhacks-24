@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 
 body {
   font-family: "Inter", sans-serif;
@@ -46,315 +50,567 @@ body {
   background-color: #1a1b2d;
 }
 
-.circle {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #2b2c3b; 
-  overflow: hidden;
-}
 
-.circle-inner {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 50%;
+  .circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #2b2c3b; /* Trail color */
+    overflow: hidden;
+  }
+  
+  .circle-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .circle-center {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: #1a1b2d; /* Inner circle background color */
+  }
+  
+  .mood-calender-container {
+    padding: 20px;
+    background: linear-gradient(to right, #632b6c, #c76b98);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .calendar-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .fancy-calendar {
+    border: none;
+  }
+  
+  .selected-date {
+    font-size: 1.2rem;
+    color: white;
+ /* Remove red color from weekends and increase the size of the calendar */
+  }
+  
+.react-calendar {
+    width: 100%;
+    max-width: 800px; /* Increase the width */
+    background-color: #f5f5f5;
+    border: none; /* Remove the default border */
+    border-radius: 15px;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem; /* Increase the font size */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 5px solid;
+    border-image: linear-gradient(45deg, #6baeff, #32e084) 1; /* Gradient border */
+  }
+  
+  /* Customize the active date (selected) */
+  .react-calendar__tile--active {
+    background-color: #4a90e2 !important; /* Blue for selected date */
+    color: white !important;
+  }
+  
+  /* Customize other tiles, including hover and focus */
+  .react-calendar__tile {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .react-calendar__tile:hover,
+  .react-calendar__tile:focus {
+    background-color: #32e084 !important; /* Green for hover */
+    color: white;
+  }
+  
+  /* Remove red from weekends */
+  .react-calendar__month-view__days__day--weekend {
+    color: #000 !important; /* Change weekend color to black */
+  }
+  
+  /* Adjust the font style for weekdays */
+  .react-calendar__month-view__weekdays {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #333;
+  }
+  
+/* AI Friend Page Container */
+.aifriend-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-}
-
-.circle-center {
-  position: absolute;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 80%;
-  border-radius: 50%;
-  background-color: #1a1b2d; /* Inner circle background color */
-}
-
-.mood-calender-container {
+  min-height: 100vh;
+  background-color: #1a1a2e;
   padding: 20px;
-  background: linear-gradient(to right, #632b6c, #c76b98);
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.calendar-wrapper {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 10px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.fancy-calendar {
-  border: none;
-}
-
-.selected-date {
-  font-size: 1.2rem;
   color: white;
-  /* Remove red color from weekends and increase the size of the calendar */
 }
 
-.react-calendar {
-  width: 100%;
-  max-width: 800px; /* Increase the width */
-  background-color: #f5f5f5;
-  border: none; /* Remove the default border */
+/* Avatar container and styling */
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 30px;
+  margin_top: 20px;
+  backdrop-filter: blur(10px);
   border-radius: 15px;
-  padding: 20px;
-  font-family: "Arial", sans-serif;
-  font-size: 1.2rem; /* Increase the font size */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  border: 5px solid;
-  border-image: linear-gradient(45deg, #6baeff, #32e084) 1; /* Gradient border */
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
 }
 
 
+.ai-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #357edd;
+  margin-bottom: 15px;
+}
 
+/* Align controls in one line */
+.controls-container {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between buttons and duration */
+}
 
-
-/* General calendar styles */
-.react-calendar {
-  width: 100%;
-  max-width: 850px; /* Slightly reduced width */
-  background-color: #e8f0ff; /* Soft blue background */
+/* Control buttons styling */
+.control-button {
+  background-color: #357edd;
+  color: white;
   border: none;
-  border-radius: 15px;
-  padding: 20px;
-  font-family: 'Inter', sans-serif;
-  box-shadow: none;
-  font-size: 1.1rem; /* Adjusted font size */
-}
-
-/* Calendar tiles (dates) */
-.react-calendar__tile {
-  background-color: #ffd1dc; /* Light pink for tiles */
-  color: #333; /* Darker text for readability */
+  padding: 10px 20px;
+  font-size: 1.5rem;
   border-radius: 8px;
-  padding: 12px; /* Adjusted padding */
+  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.react-calendar__tile:hover,
-.react-calendar__tile:focus {
-  background-color: #ff8a80 !important; /* Bright pink for hover */
+.control-button:hover {
+  background-color: #265d9e;
+}
+
+.pause-button {
+  background-color: #e2a104;
+}
+
+.resume-button {
+  background-color: #4caf50; /* Green for resume */
+}
+
+.stop-button {
+  background-color: #d9534f; /* Red for stop button */
+}
+
+.stop-button:hover {
+  background-color: #c12e2a;
+}
+
+/* Conversation length styling */
+.conversation-length {
+  font-size: 1.5rem;
   color: white;
 }
 
-/* Active selected date */
-.react-calendar__tile--active {
-  background-color: #ffca28 !important; /* Bright yellow for selected date */
-  color: #333 !important; /* Dark text for contrast */
-}
-
-/* Styling the weekdays (Mon, Tue, etc.) */
-.react-calendar__month-view__weekdays {
-  font-weight: bold;
-  color: #42a5f5; /* Bright blue for weekdays */
-  text-transform: uppercase;
-  font-size: 1.1rem; /* Adjusted font size */
-}
-
-/* Styling the weekends */
-.react-calendar__month-view__days__day--weekend {
-  color: #f50057 !important; /* Bright pink for weekends */
-}
-
-/* Header (Month, Year selectors) */
-.react-calendar__navigation {
-  background-color: #90caf9; /* Light blue for the navigation */
-  color: #ffffff;
-  font-size: 1.2rem; /* Reduced font size */
-  border-radius: 10px;
-  padding: 10px; /* Reduced padding */
+/* Container to center everything */
+.aifriend-container {
   display: flex;
-  justify-content: space-between; /* Ensure items are spaced properly */
-}
-
-.react-calendar__navigation button {
-  background-color: #42a5f5; /* Bright blue for buttons */
-  color: #ffffff;
-  min-width: 40px; /* Reduced button size */
-  border-radius: 50%;
-}
-
-.react-calendar__navigation button:hover {
-  background-color: #1976d2; /* Darker blue on hover */
-  border-radius: 50%;
-}
-
-/* Additional details (like today's date highlight) */
-.react-calendar__tile--now {
-  background: #66bb6a !important; /* Bright green for today */
-  color: white;
-}
-
-
-.center-card {
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
+  background: linear-gradient(135deg, #83a4d4, #b6fbff);
+  padding: 20px;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.circle {
-  position: relative;
-  width: 100%;
-  height: 100%;
+/* AI Avatar container with shadow and rounded border */
+.avatar-container {
+  text-align: center;
+  margin-bottom: 40px;
+  backdrop-filter: blur(10px); /* Glass effect */
+  border-radius: 15px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  
+  /* New properties to make the container bigger */
+  width: 400px; /* Set width (you can increase this as needed) */
+  height: 300px; /* Set height (you can increase this as needed) */
+  max-width: 100%; /* Ensure it doesn't go outside the viewport */
+  max-height: 100%;
+}
+
+
+.ai-avatar {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  background-color: #2b2c3b;
-  overflow: hidden;
+  border: 5px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.circle-inner {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.circle-center {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  height: 80%;
-  border-radius: 50%;
-  background-color: #1a1b2d;
-}
-
-.login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(to bottom, #ff7e5f, #feb47b);
-  color: white;
-}
-
-.login-container h2 {
-  margin-bottom: 20px;
+.ai-title {
   font-size: 2.5rem;
-  color: #fff;
+  color: #ffffff;
+  margin-top: 15px;
+  font-weight: 600;
 }
 
-form {
+/* Button container for control buttons */
+.controls-container {
   display: flex;
-  flex-direction: column;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-label {
-  margin-bottom: 5px;
-  font-size: 1.2rem;
-}
-
-input {
-  margin-bottom: 20px;
-  padding: 10px;
-  border-radius: 4px;
-  border: none;
-  font-size: 1rem;
-  width: 100%;
-  color: black;
-}
-
-.button-group {
-  display: flex;
-  justify-content: space-between;
-}
-
-.sign-in-btn,
-.login-btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: black;
-}
-
-.sign-in-btn {
-  background-color: #ff6b6b;
-}
-
-.login-btn {
-  background-color: #4eccc4;
-}
-
-.sign-in-btn:hover,
-.login-btn:hover {
-  opacity: 0.9;
-}
-
-.login-container {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-image: url("../assets/images/deer2.jpg");
-  background-size: cover;
-  background-position: center;
+  gap: 25px; /* Space between buttons and conversation duration */
+  margin-top: 20px;
+}
+
+/* Common styles for control buttons */
+.control-button {
+  background-color: #357edd;
   color: white;
+  border: none;
+  padding: 15px 25px;
+  font-size: 1.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-form {
-  display: flex;
-  height: 50%;
-  width: 500px;
-  flex-direction: column;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 50px;
-  border-radius: 10px;
-  margin-right: 900px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+/* Pause and Resume buttons pulse */
+.pulsate {
+  animation: pulsate 1.5s infinite;
 }
 
-.typewriter-text {
-  font-size: 2rem;
-  font-weight: bold;
-  border-right: 3px solid white;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+/* Red stop button with a pulse effect */
+.pulsate-red {
+  animation: pulsate-red 1.5s infinite;
 }
 
-/* Typewriter effect */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent;
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(53, 126, 221, 0.5), 0 0 10px rgba(53, 126, 221, 0.3), 0 0 20px rgba(53, 126, 221, 0.1);
   }
   50% {
-    border-color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(53, 126, 221, 0.7), 0 0 25px rgba(53, 126, 221, 0.5);
   }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(53, 126, 221, 0.5), 0 0 10px rgba(53, 126, 221, 0.3), 0 0 20px rgba(53, 126, 221, 0.1);
+  }
+}
+
+@keyframes pulsate-red {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(217, 83, 79, 0.5), 0 0 10px rgba(217, 83, 79, 0.3), 0 0 20px rgba(217, 83, 79, 0.1);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(217, 83, 79, 0.7), 0 0 25px rgba(217, 83, 79, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px rgba(217, 83, 79, 0.5), 0 0 10px rgba(217, 83, 79, 0.3), 0 0 20px rgba(217, 83, 79, 0.1);
+  }
+}
+
+/* Conversation length styling */
+.conversation-length {
+  font-size: 1.8rem;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Overall container with gradient background */
+.aifriend-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #81e3c3, #a4dff6);
+  padding: 20px;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Microphone Icon styling */
+.microphone-icon {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.mic-icon {
+  width: 100px;
+  height: 100px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Canvas for animated sound waves */
+.waveform {
+  width: 100%;
+  max-width: 500px;
+  height: 100px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Control buttons */
+.controls-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.control-button {
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.control-button:hover {
+  background-color: #eeeeee;
+}
+
+.pause-button, .resume-button, .stop-button {
+  background-color: #f05454;
+}
+
+.start-button {
+  background-color: #3cb371;
+}
+
+.time-display {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Audio container for playback */
+.audio-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+/* General container with soothing gradient background */
+.aifriend-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #81e3c3, #a4dff6);
+  padding: 20px;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Microphone Icon Styling */
+.mic-background {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 50%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.mic-icon {
+  width: 80px;
+  height: 80px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Sound Wave Visualizer */
+.waveform {
+  width: 100%;
+  max-width: 600px;
+  height: 150px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
+/* Control buttons */
+.controls-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.control-button {
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.control-button:hover {
+  background-color: #eeeeee;
+}
+
+.pause-button, .resume-button, .stop-button {
+  background-color: #f05454;
+}
+
+.start-button {
+  background-color: #3cb371;
+}
+
+.time-display {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Audio container for playback */
+.audio-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: none;
+  border: none;
+  font-size: 35px;
+  cursor: pointer;
+  color: #000;  /* Use your desired color */
+}
+
+.close-button:hover {
+  color: #632b6c;  /* Hover color */
+}
+
+/* Wave container */
+.wave-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/* The image with wave pattern behind */
+.wave-container img {
+  position: relative;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+/* Create waves using pseudo-elements */
+.wave {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(99, 43, 108, 0.2); /* Use a semi-transparent color */
+  border-radius: 50%;
+  z-index: 1;
+  animation: wave 2s ease-in-out infinite;
+}
+
+/* Create a vibrating effect */
+@keyframes wave {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* Add more waves with different sizes and delays */
+.wave:nth-child(1) {
+  width: 220px;
+  height: 220px;
+  animation-delay: 0.1s;
+}
+
+.wave:nth-child(2) {
+  width: 240px;
+  height: 240px;
+  animation-delay: 0.3s;
+}
+
+.wave:nth-child(3) {
+  width: 260px;
+  height: 260px;
+  animation-delay: 0.5s;
 }
