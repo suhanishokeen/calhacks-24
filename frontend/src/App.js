@@ -14,6 +14,7 @@ import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 
 const App = () => {
+const App = () => {
   return (
     <BrowserRouter>
     <Routes>
@@ -29,4 +30,5 @@ const App = () => {
   );
 };
 
+export default App;
 export default App;
