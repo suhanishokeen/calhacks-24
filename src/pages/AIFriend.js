@@ -1,61 +1,58 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';  // Import the useNavigate hook
 import '../styles/styles.css';  // Import the styles
+import Recorder from 'recorder-js';
 
 const AIFriendPage = () => {
   const [isRecording, setIsRecording] = useState(false);
+  const recorderRef = useRef(null);
+  const navigate = useNavigate();
   const [audioChunks, setAudioChunks] = useState([]);
   const mediaRecorderRef = useRef(null);
-  const navigate = useNavigate();  // Create navigate function to redirect
 
-  // Start recording audio
   const startRecording = async () => {
-    setIsRecording(true);
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const recorder = new Recorder(audioContext);
+
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    const mediaRecorder = new MediaRecorder(stream);
+    recorder.init(stream);
 
-    mediaRecorderRef.current = mediaRecorder;
-
-    mediaRecorder.ondataavailable = (event) => {
-      setAudioChunks((prev) => [...prev, event.data]);
-    };
-
-    mediaRecorder.onstop = () => {
-      const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-      sendAudioToBackend(audioBlob); // Send audio to the backend
-      setAudioChunks([]); // Reset audio chunks for next recording
-    };
-
-    mediaRecorder.start();
+    recorderRef.current = recorder;
+    recorder.start();
+    setIsRecording(true);
   };
 
-  // Stop recording audio
-  const stopRecording = () => {
+  const stopRecording = async () => {
+    const { blob, buffer } = await recorderRef.current.stop();
     setIsRecording(false);
-    mediaRecorderRef.current.stop();
+    sendAudioToBackend(blob);
   };
 
-  // Function to send the audio file to the backend
   const sendAudioToBackend = async (audioBlob) => {
     const formData = new FormData();
-    formData.append('audio', audioBlob, `recording-${Date.now()}.wav`);
-
+    formData.append('file', audioBlob, `recording-${Date.now()}.wav`);
+    console.log('audioBlob type:', audioBlob.type);
+    const token = localStorage.getItem('jwt_token');
     try {
-      const response = await fetch('http://your-backend-endpoint/upload-audio', {
+      const response = await fetch('https://13e2-199-115-241-193.ngrok-free.app/upload-audio', {
         method: 'POST',
+        headers: {
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NzE1MDZlN2VhZGUxYzg2YTgxMmYzMDIiLCJleHAiOjE3Mjk0MzMzNzl9.PCMokuPO6WfbIihnfzxUJqZPPzfEtvYqxsDckPH09zE`,  // Hardcoded JWT token
+        },
         body: formData,
       });
 
       if (response.ok) {
         console.log('Audio file uploaded successfully');
+        // Handle successful response
       } else {
-        console.error('Error uploading audio file');
+        const errorData = await response.json();
+        console.error('Error uploading audio file:', errorData);
       }
     } catch (error) {
       console.error('Error:', error);
     }
   };
-
   // Function to navigate back to the HomePage.js
   const goToHomePage = () => {
     navigate('/home');  // Navigate to the HomePage.js route
@@ -90,6 +87,6 @@ const AIFriendPage = () => {
       </div>
     </div>
   );
+  // Rest of your component code...
 };
-
-export default AIFriendPage;
+export default AIFriendPage;  // Export the AIFriendPage component
