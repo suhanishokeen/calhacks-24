@@ -1,8 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Quicksand:wght@400;600&display=swap');
+
 @tailwind utilities; 
 
+@tailwind utilities; */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
 body {
   font-family: "Inter", sans-serif;
 }
@@ -124,10 +131,9 @@ body {
     background-color: #4a90e2 !important; /* Blue for selected date */
     color: white !important;
   }
-  
   /* Customize other tiles, including hover and focus */
   .react-calendar__tile {
-    background-color: #ffffff;
+    background-color: black;
     border-radius: 8px;
     padding: 10px;
     transition: background-color 0.3s ease;
@@ -135,7 +141,7 @@ body {
   
   .react-calendar__tile:hover,
   .react-calendar__tile:focus {
-    background-color: #32e084 !important; /* Green for hover */
+    background-color: #3235e0 !important; /* Green for hover */
     color: white;
   }
   
@@ -148,7 +154,7 @@ body {
   .react-calendar__month-view__weekdays {
     font-weight: bold;
     text-decoration: underline;
-    color: #333;
+    color: #010000;
   }
   
 /* AI Friend Page Container */
@@ -590,6 +596,11 @@ body {
     transform: scale(1);
     opacity: 0.7;
   }
+}
+.custom-calendar {
+  /* Add any specific calendar styling you want */
+  border: none;
+  background-color: #1a1b2d;
 }
 
 /* Add more waves with different sizes and delays */

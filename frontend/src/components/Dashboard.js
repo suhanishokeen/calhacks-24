@@ -1,55 +1,54 @@
 import React from 'react';
-import '../styles/styles.css'; 
 
-const DashboardContent = () => {
-    return (
-        <div className="bg-gradient-to-r from-[#0a0034] to-[#180046] min-h-screen p-8 text-white">
-            {/* Dashboard Header */}
-            <header className="flex justify-between items-center mb-8">
-                <h1 className="text-4xl font-bold">Dashboard</h1>
-                <input
-                    type="text"
-                    placeholder="Type here..."
-                    className="p-2 rounded-md bg-[#2a2a72] text-white"
-                />
-            </header>
+import WelcomeRecordCard from './components/WelcomeRecordCard';
+import SatisfactionRateCard from './components/SatisfactionRateCard';
+import ReferralTrackingCard from './components/ReferralTrackingCard';
 
-            {/* Dashboard Grid Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                {/* AI Friend Card */}
-                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg flex flex-col justify-between min-h-[200px]">
-                    <h2 className="text-2xl font-semibold mb-4">AI Friend</h2>
-                    <button className="custom-button">
-                        Tap to record
-                    </button>
-                </div>
+const Dashboard = () => {
+  return (
+    <div 
+      style={{
+        display: 'grid',
+        gridTemplateColumns: '50% 25% 25%',
+        gap: '20px', // Spacing between grid items (widgets)
+        padding: '20px',
+        height: '50%',
+        backgroundImage: 'linear-gradient(135deg, #001f4d, #6baeff)',
+      }}
+    >
+      {/* First Widget: WelcomeRecordCard */}
+      <div>
+        <WelcomeRecordCard name="Liza" onRecord={() => console.log('Recording...')} />
+      </div>
 
-                {/* Mood Calendar Card */}
-                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg min-h-[200px]">
-                    <h2 className="text-2xl font-semibold mb-4">Mood Calendar</h2>
-                </div>
+      {/* Second Widget: ReferralTrackingCard */}
+      <div 
+        style={{
+          borderRadius: '6px',
+          padding: '2px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Subtle shadow for elevation
+        }}
+      >
+        <ReferralTrackingCard 
+          currentMonth="October"
+          totalDaysInMonth={31}
+          daysLoggedInMonth={15}
+          totalDaysLoggedYear={250}
+          totalDaysLoggedEver={600}
+          emotions={[
+            { name: 'Happiness', percentage: 60 },
+            { name: 'Sadness', percentage: 25 },
+            { name: 'Surprise', percentage: 15 }
+          ]}
+        />
+      </div>
 
-                {/* Tables Card */}
-                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg min-h-[200px]">
-                    <h2 className="text-2xl font-semibold mb-4">Tables</h2>
-                </div>
-
-                {/* Account Pages Section */}
-                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg min-h-[200px]">
-                    <h2 className="text-2xl font-semibold mb-4">Account Pages</h2>
-                    <ul className="text-gray-400">
-                        <li className="mb-2">
-                            <a href="/profile" className="hover:text-white transition">Profile</a>
-                        </li>
-                        <li className="mb-2">
-                            <a href="/logout" className="hover:text-white transition">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    );
+      {/* Third Widget: SatisfactionRateCard */}
+      <div>
+        <SatisfactionRateCard />
+      </div>
+    </div>
+  );
 };
 
-export default DashboardContent;
+export default Dashboard;

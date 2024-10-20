@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FaClock } from 'react-icons/fa';
+import { FaClock, FaBars } from 'react-icons/fa';
+import { Link } from 'react-router-dom'; // Import Link for routing
+
 
 const Header = () => {
-  const [currentTime, setCurrentTime] = useState('');
+  const [currentTime, setCurrentTime] = useState({ time: '', date: '' });
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -21,23 +23,28 @@ const Header = () => {
       setCurrentTime({ time: formattedTime, date: formattedDate });
     }, 1000);
 
-    return () => clearInterval(intervalId); 
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <header className="relative flex items-center p-4 bg-gradient-to-r from-[#0a0034] to-[#180046] text-white shadow-lg">
-      {/* Logo and tagline centered */}
-      <div className="mx-auto text-center">
-        <h1 className="text-6xl font-bold">DayStream</h1>
-        <p className="text-sm">Your daily mood tracker</p>
+    <header className="relative flex items-center justify-between py-6 px-8 bg-gradient-to-b from-[#009965] to-[#180046] text-white shadow-lg backdrop-blur-lg">
+      {/* Center: DayTalks title */}
+      <div className="text-left ml-8"> {/* Added left margin to separate title */}
+        <h1 className="text-5xl font-extrabold tracking-wide uppercase">
+          DayTalks
+        </h1>
       </div>
 
-      {/* Date and time with styling */}
-      <div className="absolute right-4 top-4 text-right px-7">
-        <p className="text-s font-semibold flex items-center justify-end">
-          <FaClock className="mr-2" /> {currentTime.time}
+      {/* Right side: Date, Time */}
+      <div className="flex items-center space-x-4">
+        {/* Date and time */}
+        <div className="flex items-center space-x-2 bg-gray-800 bg-opacity-50 rounded-full px-4 py-2 shadow-md">
+          <FaClock className="text-white" />
+          <p className="text-lg font-semibold">{currentTime.time}</p>
+        </div>
+        <p className="text-md bg-gray-700 bg-opacity-75 px-3 py-1 rounded-lg shadow-sm">
+          {currentTime.date}
         </p>
-        <p className="text-s bg-gray-700 px-2 py-1 mt-2 rounded-lg">{currentTime.date}</p>
       </div>
     </header>
   );
