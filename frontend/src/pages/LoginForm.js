@@ -1,26 +1,41 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Make sure axios is installed
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false); // Loading state to handle button state
+
+  const navigate = useNavigate(); // Initialize useNavigate to redirect users
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
+
     const loginData = { email, password };
 
     try {
-      const response = await axios.post('http://localhost:5000/login', loginData); // Replace with your backend login route
+      const response = await axios.post('https://13e2-199-115-241-193.ngrok-free.app/auth/login', loginData);
       console.log('Login successful:', response.data);
 
-      // Handle successful login (e.g., store token, redirect user)
-      localStorage.setItem('token', response.data.token); // Store token in localStorage or state management
-      window.location.href = '/dashboard'; // Redirect to dashboard
+      // Store the token in localStorage or sessionStorage
+      localStorage.setItem('token', response.data.token);
+
+      setMessage('Login successful!');
+      
+      // Redirect the user to the Home page
+      navigate('/home');
 
     } catch (error) {
       console.error('Error logging in:', error);
-      // Handle login error (e.g., show error message)
+      setMessage(error.response?.data?.message || 'Login failed. Please check your credentials.');
+    } finally {
+      setLoading(false); // End loading
     }
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="text-2xl font-bold text-white mb-6 text-center">Log In</h2>
@@ -47,9 +62,12 @@ const LoginForm = () => {
       <button
         type="submit"
         className="w-full bg-green-500 hover:bg-green-600 text-white p-2 rounded-md mt-4"
+        disabled={loading} // Disable the button when loading
       >
-        Log In
+        {loading ? 'Logging in...' : 'Log In'} {/* Change button text when loading */}
       </button>
+
+      {message && <p className="mt-4 text-center text-red-500">{message}</p>}
     </form>
   );
 };

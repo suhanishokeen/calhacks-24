@@ -9,12 +9,14 @@ import Tables from './pages/Tables';
 import Profile from './pages/Profile';
 import Logout from './pages/Logout';
 import LoginRegistrationPage from './pages/LoginRegistrationPage';
+import RegistrationForm from './pages/RegistrationForm';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginRegistrationPage />} />
+        <Route path="/login" element={<LoginRegistrationPage />} />
+        <Route path="/register" element={<RegistrationForm />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/MoodCalendarPage" element={<MoodCalendarPage />} />
         <Route path="/AIFriend" element={<AIFriendPage />} />

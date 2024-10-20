@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';  // Import useNavigate
 
 const RegistrationForm = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+  
+  const navigate = useNavigate();  // Initialize useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const newUser = { username, email, password };
 
     try {
-      const response = await axios.post('http://localhost:5000/register', newUser);
+      const response = await axios.post('https://13e2-199-115-241-193.ngrok-free.app/auth/register', newUser);  // Use Flask API URL
       console.log('User registered successfully:', response.data);
+      setMessage('Registration successful!');
+      
+      // Redirect to /Home after successful registration
+      navigate('/home');
     } catch (error) {
       console.error('Error registering user:', error);
+      setMessage(error.response?.data.message || 'Registration failed. Please try again.');
     }
   };
 
@@ -58,6 +67,8 @@ const RegistrationForm = () => {
       >
         Sign Up
       </button>
+
+      {message && <p className="mt-4 text-center text-red-500">{message}</p>}
     </form>
   );
 };

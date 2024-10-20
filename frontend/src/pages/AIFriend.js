@@ -41,7 +41,7 @@ const AIFriendPage = () => {
     formData.append('audio', audioBlob, `recording-${Date.now()}.wav`);
 
     try {
-      const response = await fetch('http://your-backend-endpoint/upload-audio', {
+      const response = await fetch('https://13e2-199-115-241-193.ngrok-free.app/', {
         method: 'POST',
         body: formData,
       });
