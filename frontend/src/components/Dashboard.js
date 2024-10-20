@@ -17,24 +17,26 @@ const DashboardContent = () => {
             {/* Dashboard Grid Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                {/* AI Friend Section */}
-                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg flex flex-col justify-between">
-                    <div>
-                        <h2 className="text-2xl font-semibold mb-4">AI Friend</h2>
-                        <p className="text-gray-400">Ask me anything!</p>
-                    </div>
+                {/* AI Friend Card */}
+                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg flex flex-col justify-between min-h-[200px]">
+                    <h2 className="text-2xl font-semibold mb-4">AI Friend</h2>
                     <button className="custom-button">
                         Tap to record
                     </button>
                 </div>
 
-                {/* Tables Section */}
-                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg">
+                {/* Mood Calendar Card */}
+                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg min-h-[200px]">
+                    <h2 className="text-2xl font-semibold mb-4">Mood Calendar</h2>
+                </div>
+
+                {/* Tables Card */}
+                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg min-h-[200px]">
                     <h2 className="text-2xl font-semibold mb-4">Tables</h2>
                 </div>
 
                 {/* Account Pages Section */}
-                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg">
+                <div className="bg-[#25135a] p-6 rounded-lg shadow-lg min-h-[200px]">
                     <h2 className="text-2xl font-semibold mb-4">Account Pages</h2>
                     <ul className="text-gray-400">
                         <li className="mb-2">
