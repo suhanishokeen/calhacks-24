@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'; // Default calendar styles
 import '../styles/styles.css'; // Your custom styles from src/styles/styles.css
 
-const MoodCalender = () => {
+const MoodCalendar = () => {
   const [date, setDate] = useState(new Date());
 
   return (
@@ -21,4 +21,4 @@ const MoodCalender = () => {
   );
 };
 
-export default MoodCalender;
+export default MoodCalendar;

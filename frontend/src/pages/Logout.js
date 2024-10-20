@@ -1,5 +1,5 @@
 
-const logout = () =>{
+const Logout = () =>{
 
 }
 export default logout;
