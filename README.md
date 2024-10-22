@@ -9,7 +9,8 @@ DayTalks is a mental health-focused web application designed to help users track
 - Emotional Analysis: HumeAI
 - AI Feedback: Groq
 
-## Presentation Link: https://docs.google.com/presentation/d/1ie3J3TZjMKF-dlxLB1phqXhF7gT6ZlpWiBqR9_xQhtE/edit?usp=sharing
+## Presentation Link: 
+https://docs.google.com/presentation/d/1ie3J3TZjMKF-dlxLB1phqXhF7gT6ZlpWiBqR9_xQhtE/edit?usp=sharing
 
 ## Installation
 To get a local copy up and running, follow these steps:
